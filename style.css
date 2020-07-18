@@ -1,0 +1,407 @@
+/* Global Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  /* margin and padding 0 from body  and elements */
+  box-sizing: border-box;
+  /*  isko lagane se width increase nhi hogi. kynki pehle margin and padding add krne se element ki width increase horhi thi*/
+}
+html {
+  /* yeh font size isiliye lagaya hai taaki ek toh rem size 1 rem = 10px hojaye and yeh responsive bbi hai */
+  /* jab website choti kroge mobile size pr toh  media queries se size change krne ki zaroorat nahi fonts ki.
+    because humne percentage mai dia hai jiske wajah se automatic adjust hojayega */
+  font-size: 62.5%;
+
+  /* Scroll Behavior smooth krne se navigation smooth hojata hai */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  font-size: 2.6rem;
+}
+li,
+button,
+label,
+input,
+p {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 4.8rem;
+}
+h3 {
+  font-size: 3rem;
+  font-weight: normal;
+}
+h4,
+h5 {
+  font-size: 2.8rem;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+button {
+  padding: 2rem 6rem;
+  background: #4c6e97;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: background 0.5s ease-in-out;
+}
+button:hover {
+  background: #27394e;
+}
+
+/* Nav Section With HERO */
+
+.main-head {
+  background: #131c27;
+  color: white;
+  /* position sticky  lagane se element stick hojata hai.
+  humne top 0 diya jsike wajah se maine head top 0 yaani sabse upar stick hokar rhgyga
+  . jab scroll kroge toh top 0 par rhyga maine head
+  */
+  position: sticky;
+  top: 0px;
+  z-index: 3;
+}
+
+nav {
+  display: flex;
+  /* yahan width 90% and margin auto karne se nav center mai agaya */
+  width: 90%;
+  margin: auto;
+  /* yahan humne padding isiliye dee hai taaki yeh nav jo hai badha h andar se
+  jaise min-height lagadi 10vh but chota krne par nav bar chota horha
+  isiliye padding lagadi taaki bdha rhe */
+  padding: 2rem;
+  /* min height lagane se yeh hota h ki pehle toh height lag gyi minimum 10vh
+  uske baad jitna content badhta rhyga height bhi bdhti rhygi ,bcz yeh min height hai. responsive hoti h
+  height: 50vh krte  toh content se nahi badhti height  */
+  min-height: 10vh;
+  align-items: center;
+  /* flex wrap lagane se jab wrap hojate hain boxes.
+  jaise 5 boxes hain and phir space nahi rhta. toh apne aap wrap hokar neeche waali
+  line mai chalen jaate hain */
+  flex-wrap: wrap;
+}
+
+nav ul {
+  display: flex;
+  flex: 1 1 40rem;
+  justify-content: space-around;
+  /* align items agar stretch kardia toh yeh container waali height leker strectch hojayega
+ but container ke andar div mai height dedi toh uss height se hojayegenge items set
+  but agar humne align items center kardia bina height diye container ke andar waale tems ko
+  toh items heigh text ke hisaab se lelenge. text jo container ke items ke andar hain*/
+  align-items: center;
+  list-style: none;
+}
+#logo {
+  /* flex grow */
+  /* flex grow jaise humne item par send kardia toh woh item available width lelega
+  .jaise 2 boxes hain. 1 box par lagadia flex- 1; and 2nd box 10rem width
+  toh 1st box poori available width leleyga and 10rem chordeyga
+  but agar humne dono boxes par dedia flex grow 1 toh dono equally width share krlenge 
+  aur agar humne box 1 par flex-grow 2 dedia and box  2 par flex-grow 1 . toh 1st waala box zyda width lega*/
+
+  /* Flex-basis. */
+  /* flex basis kya hota hai ki jaise hume base width deni hai item ko ya items ko
+  jaise flex grow toh available width lelega and size ke hisab se adjust
+  but agar hume base width deni h ki yeh kitna size ho iska tb hum use krte hain 
+  and flex wrap kaam nahi karta flex basis ke bina. jaise hum flex grow deden sirf  tab flexwrap kaam nahi krta
+  ab hum kya karenge ki flex basis denge 20rem and flex grow dedenge item mai and flex wrap container mai
+  phir yeh hoga ki jaise item 20rem se neeche jayega tab foran wrap hojayega
+  yeh 20 rem se neeche nahi jayega item. jaise neeche jaane ko hoga wrap hojayega. 
+  baaki 20rem se upar flex grow 1 h toh apne hisaab se width leleyga availble space ki */
+
+  /* Flex shrink */
+  /* flex shrink jaise humne ksi item par lagadia toh woh shrink nahi hoga. 
+    ab hum saari properties short mai likh skte hain
+    flex: 2 1 40rem;
+    yahan hum keh rhe hain ki flex grow 2 rhe jitna available space ho lelo
+    and flex shrink 1 jo by default rhti h
+    and flex basis 40rem 
+    yeh humne isiliye di ki 40rem size rhna chayye har haal mai.
+    jaise 40 rem se neeche hoga. wrap hojayenge*/
+  flex: 2 1 40rem;
+  font-family: "Pattaya", sans-serif;
+  font-weight: 400;
+}
+
+.hero {
+  min-height: 90vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), transparent),
+    url("./img/landing-page.jpg");
+  background-repeat: no-repeat;
+  /* cover lagane se poore container ko cover krelygi image */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.hero h3 {
+  padding: 5rem;
+}
+
+/* Locations SECTION */
+
+#locations {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), transparent),
+    url("./img/new-york-page.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  /* position relative lagane se hum element ko move kar skte hain
+  but yeh flow se bahar nahi jaata. and relative mai hum position absolute waala
+  box laga skte hain.  */
+  /* relative lagaaya taaki clouds ko position de ske . out of flow */
+  position: relative;
+  /* overflow hidden lagaya taaki clouds overflow na ho */
+  overflow: hidden;
+}
+.locations-head {
+  width: 90%;
+  margin: auto;
+}
+.locations-head h2 {
+  padding: 1rem 0rem;
+  text-decoration: underline;
+  /* Optional 
+  text-decoration-thickness: 0.5rem;
+  */
+}
+.locations-head h3 {
+  padding: 4rem 0rem;
+  background: linear-gradient(#131c27, #663b34);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cloud {
+  /* absolute position lagane se element flow se bahar ajata hain
+   and phir hum top right krke move kr skte hain
+   top right karne par yeh window ke hisaab se chaleyga
+   but agar humne relative kardia usse upar waale element ko
+   toh uske andar move kreyga */
+  position: absolute;
+  top: 0%;
+  right: 0%;
+}
+.moving-cloud-1 {
+  animation: cloudAnimation 3s infinite alternate ease-in-out;
+}
+.moving-cloud-2 {
+  top: 20%;
+  /* yahan z-index - 1 hai taaki yeh cloud peeche chala jaye pehle waale cloud ke
+   */
+  z-index: -1;
+  opacity: 0.5;
+  
+  animation: cloudAnimation 3.5s infinite alternate ease-in-out;
+}
+/* Cloud Animation */
+
+@keyframes cloudAnimation {
+  /*  yahan hum aise bhi de skte ki hai 10% par yeh ho 50% par yeh ho
+  100% par yeh ho
+  
+  but yahan hum 2 properties laga rhe h toh from and to kr skte hain
+  */
+  from {
+        /* humne cloud ko 10% X axis se move kardia 
+        phir -10% Y se */
+    transform: translate(10%, -10%);
+  }
+  to {
+    /* Phir apni jagah chale gaye clouds */
+    transform: translate(0%, 0%);
+  }
+}
+
+/* Benefits section*/
+
+.benefits-head {
+  background: #343c44;
+  padding: 3rem;
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+.benefits-head h3 {
+  padding: 1rem;
+}
+
+.cards {
+
+  width: 90%;
+  margin: auto;
+  display: flex;
+  min-height: 70vh;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  text-align: center;
+  flex: 1 1 25rem;
+  min-height: 40vh;
+  margin: 2rem 5rem;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1), 0px 20px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cards img {
+ 
+  max-width: 15%;
+  margin: 2rem;
+}
+.card h4,
+.card p {
+  padding: 1rem;
+  line-height: 1.8;
+}
+
+.card-icon {
+  background: #27394e;
+}
+
+/* Contact Section */
+
+.example-of-height {
+  /* Yeh jaise hum height set krenge  ek box mai toh yeh apply nahi hogi
+  kynki box content waali height liya hua hai . jitna content hai usme
+  utni height hai box ki
+  isko apply krne ke liye hume html, body ki height 100% krni hogi phir box uske hisaab se lelega 100% 
+  50% doge toh 50% lelega according to body height*/
+
+  height: 100%;
+}
+
+#contact {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), transparent),
+    url("./img/contact-mountain.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-wrapper {
+  background: rgba(19, 28, 39, 0.8);
+  width: 60%;
+  color: white;
+  border-radius: 20px;
+}
+.form-head {
+  text-align: center;
+  padding: 4rem;
+}
+.name-form,
+.email-form {
+  padding: 3rem;
+  text-align: center;
+}
+.form-wrapper label {
+  margin: 0rem 3rem;
+}
+.form-wrapper button {
+  width: 100%;
+  padding: 2rem;
+  margin-top: 8rem;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.form-wrapper input {
+  padding: 1rem 3rem;
+}
+
+/* Footer Section */
+
+footer {
+  color: white;
+  background: rgba(19, 28, 39, 1);
+}
+.footer-wrapper {
+  display: flex;
+  padding: 2rem;
+  width: 90%;
+  margin: auto;
+  align-items: center;
+  min-height: 10vh;
+  flex-wrap: wrap;
+}
+footer h5 {
+  flex: 1 1 40rem;
+}
+footer ul {
+  display: flex;
+  list-style: none;
+  flex: 1 1 40rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Button focus to make website accessible */
+
+button:focus {
+  background: #2c3f57;
+  outline-style: solid;
+  outline-color: cornflowerblue;
+}
+
+/* Media Query */
+@media screen and (max-width: 932px) {
+  html {
+    /*  isko lagane se font ka size kam hojeyaga 932px se neeche poori body ka kam hojayega
+    because humne REM set kr rkha hai all body mai . */
+    font-size: 45%;
+  }
+  nav {
+    text-align: center;
+  }
+  #logo {
+    padding: 2rem;
+  }
+  .cloud {
+    height: 40rem;
+    pointer-events: none;
+  }
+  .moving-cloud-1 {
+    z-index: -1;
+  }
+  .moving-cloud-2 {
+    z-index: -2;
+  }
+  .locations-head h3 {
+    background: rgba(19, 28, 39, 0.9);
+    -webkit-text-fill-color: white;
+  }
+  .form-wrapper {
+    width: 100%;
+  }
+  footer {
+    text-align: center;
+  }
+  footer h5 {
+    padding-bottom: 3rem;
+  }
+}
